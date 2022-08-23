@@ -21,7 +21,7 @@ public:
         if (this->x != other.x) {
             return false;
         }
-        return x == other.x;
+        return this->y == other.y;
     }
     bool operator != (const Ponto &other) {
         return !(*(this) == other);
