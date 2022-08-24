@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int main () {
+int main() {
     int x;
     // desabilita a sincronização entre as streams do c com do c++
     // tire a linha se for usar printf e scanf
@@ -14,6 +14,6 @@ int main () {
     cout << "Entre com um valor: ";
     cin >> x;
     cout << "Vc digitou " << x << "\n";
-    
+
     return 0;
 }

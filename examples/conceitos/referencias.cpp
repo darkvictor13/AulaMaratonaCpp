@@ -1,6 +1,4 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#include <iostream>
 
 void trocaUsandoPonteiro(int *a, int *b) {
     int temp = *a;
@@ -16,10 +14,10 @@ void trocaUsandoReferencias(int &a, int &b) {
 
 int main () {
     int x = 10, y = 20;
-    cout << x << ", " << y << '\n';
+    std::cout << x << ", " << y << '\n';
     trocaUsandoPonteiro(&x, &y);
-    cout << x << ", " << y << '\n';
+    std::cout << x << ", " << y << '\n';
     trocaUsandoReferencias(x, y);
-    cout << x << ", " << y << '\n';
+    std::cout << x << ", " << y << '\n';
     return 0;
 }

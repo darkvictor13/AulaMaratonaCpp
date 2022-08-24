@@ -95,6 +95,11 @@
         \caption{\label{fig:superset}Diagrama de Venn C/C++}
     \end{figure}
     \framebreak
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[width=\textwidth]{frase_c++}
+    \end{figure}
+    \framebreak
     \begin{itemize}
         \item Linguagem compilada (g++);
         \item Fortemente tipada\cite{slides_clp_2};
@@ -155,25 +160,72 @@ int main () {
 \end{frame}
 
 \section{Estruturas de dados STL}
-\begin{frame}
+\begin{frame}[allowframebreaks]
     \frametitle{Sequenciais}
 
-    Tem uma ``api'' idêntica a vetores do C, ``vetor[i] = valor;''
+    Vetores:
+    Tem uma ``api'' idêntica a vetores do C com acesso de um elemento específico, ``vetor[i] = valor;''
 
     \begin{itemize}
-        % colocar o caractere < no texto
         \item\textbf{array$<$T, size$>$}: Vetor do tipo T de tamanho size definido em tempo de compilação;
         \item\textbf{vector$<$T$>$}: Vetor do tipo T de tamanho variável;
+        \item \textbf{deque$<$T$>$}: Fila duplamente encadeada do tipo T, funciona como o vector porém as ações de inserir e remover são um pouco mais eficientes;
+    \end{itemize}
+
+    \framebreak
+
+    Listas encadeadas: Não possui acesso a um elemento específico
+    \begin{itemize}
+        \item\textbf{forward\_list$<$T$>$}: Lista encadeada do tipo T, so pode ser percorrida do começo para o fim;
+        \item\textbf{list$<$T$>$}: Lista duplamente encadeada do tipo T, pode ser percorrida dos dois lados;
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Interfaces FIFO e LIFO}
+
+    Interfaces que por padrão utilizam estruturas como deque e list internamente:
+
+    \begin{itemize}
+        \item\textbf{stack$<$T$>$}: Pilha do tipo T, funciona como uma pilha de pratos, o último a entrar é o primeiro a sair (\textit{LIFO, Last In First Out});
+        \item\textbf{queue$<$T$>$}: Fila do tipo T, funciona como uma fila de banco, o primeiro a entrar é o primeiro a sair (\textit{FIFO, First In First Out});
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+    \frametitle{Associativas}
+
+    Implementam estruturas que permitem buscar um elemento de forma eficiente $O(\log(N))$ normalmente utilizando árvores como a rubro-negra ou tabelas hash.
+    \begin{itemize}
+        \item\textbf{set$<$T$>$}: Conjunto do tipo T, não permite elementos repetidos, é uma árvore rubro-negra;
+        \item\textbf{map$<$K, V$>$}: Mapeia a chave do tipo K para um valor do tipo V, não permite chaves repetidas, é uma árvore rubro-negra;
+    \end{itemize}
+
+    \framebreak
+    Modificadores de estruturas associativas (multi e unordered):
+    \begin{itemize}
+        \item\textbf{multi}: Permite elementos repetidos, no caso da map chaves repetidas;
+        \item\textbf{unordered}: Elementos não são alocados de maneira sequencial na estrutura;
+    \end{itemize}
+
+    \framebreak
+    \begin{itemize}
+        \item\textbf{set}: Árvore rubro-negra;
+        \item\textbf{multiset}: Árvore rubro-negra;
+        \item\textbf{unordered\_set}: Tabela hash;
+        \item\textbf{unordered\_multiset}: Tabela hash;
+
+        \item\textbf{map}: Árvore rubro-negra;
+        \item\textbf{multimap}: Árvore rubro-negra;
+        \item\textbf{unordered\_map}: Tabela hash;
+        \item\textbf{unordered\_multimap}: Tabela hash;
     \end{itemize}
 
 \end{frame}
 
 \begin{frame}
     \frametitle{Exemplo}
-
-    %\begin{lstlisting}
-        
-    %\end{lstlisting}
 
 \end{frame}
 
