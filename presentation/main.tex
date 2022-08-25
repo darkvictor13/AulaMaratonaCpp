@@ -10,6 +10,7 @@
 \usepackage{url}
 \usepackage{hyperref}
 \usepackage{beamerthemeshadow}
+\usepackage{verbatim}
 %\usepackage{lstlisting}
 \usepackage{listings}
 
@@ -86,7 +87,7 @@
     \tableofcontents
 \end{frame}
 
-\section{Características C++}\label{Características C++}
+\section{Características}\label{Características}
 \begin{frame}[allowframebreaks]
     \frametitle{Conceitos}
     \begin{figure}[!htb]
@@ -123,43 +124,75 @@
 \section{Ola Mundo}\label{Ola Mundo}
 \begin{frame}[t,fragile]{\insertsectionhead}
     \frametitle{Exemplo de Ola Mundo Simples}
+    \centering
     \begin{lstlisting}
 #include <iostream>
-using namespace std;
 int main () {
-    cout << "Ola Mundo\n";
+    std::cout << "Ola Mundo\n";
     return 0;
 }
     \end{lstlisting}
 \end{frame}
 
-\section{Sobrecarga de operador}\label{Sobrecarga de operador}
-\begin{frame}
+\begin{frame}[allowframebreaks]
     \frametitle{Explicando o $<<$}
+
+    \begin{itemize}
+        \item Por padrão o operador $<<$ serve como shift left quando aplicado em 2 numeros.
+        \item O operador foi sobrecarregado para quando operar com ostream formatar o dado e imprimir.
+    \end{itemize}
+    \framebreak
+    \begin{figure}
+        \centering
+        \includegraphics[width=\textwidth]{sobrecarga_std}
+        \caption{\label{fig:sobrecarga_std}Exemplo de sobrecarga de operador arquivo ostram}
+    \end{figure}
 \end{frame}
 
 \section{Dicas c++ Maratona}\label{Dicas c++ Maratona}
 \begin{frame}[t,fragile]{\insertsectionhead}
     \frametitle{Exemplo de Ola Mundo Maratona}
-    \begin{center}
+    \centering
     \begin{lstlisting}
 #include <bits/stdc++.h>
 using namespace std;
 int main () {
-    // desabilita a sincronizacao entre as streams do c com do c++
-    // retire se for usar printf e scanf
     ios_base::sync_with_stdio(false);
-    // desabilita o flush automatico do buffer
-    // retire caso use um cout sem fim de linha e logo em seguida cin
     cin.tie(0);
     cout << "Ola Mundo\n";
     return 0;
 }
     \end{lstlisting}
-    \end{center}
+\end{frame}
+\begin{frame}
+    \frametitle{Explicando o Ola Mundo}
+    \begin{itemize}
+        \item\textbf{\#include $<$bits/stdc++.h$>$}: Inclui todas as bibliotecas padrão do c++;
+        \item\textbf{using namespace std}: Coloca todo o arquivo em um namespace std, sendo assim não precisa usar o std:: antes de utilizar funções e objetos;
+        \item\textbf{ios_base::sync_with_stdio(false)}: Desabilita a sincronização entre as streams do c com do c++, retire se for usar printf e scanf;
+        \item\textbf{cin.tie(0)}: Desabilita o flush automatico do buffer, retire caso use um cout sem fim de linha e logo em seguida cin;
+    \end{itemize}
 \end{frame}
 
-\section{Estruturas de dados STL}
+\begin{frame}
+    \frametitle{Dicas}
+
+    \begin{itemize}
+        \item Resolver um problema da maratona é diferente de resolver uma lista de C1 ou de uma entrevista de emprego:
+        \begin{itemize}
+            \item Os bons padrões que aprendemos não importam muito;
+            \item Pre-alocar a memória (evitar malloc e new);
+            \item Escrever código direto no main;
+        \end{itemize}
+        \item Escrever a menor quantidade de código possível;
+        \item Menor quantidade de estruturas de dados;
+        \item Menor quantidade de funções;
+        \item Testar a complexidade do algoritmo;
+    \end{itemize}
+
+\end{frame}
+
+\section{Algoritmos e estruturas STL}
 \begin{frame}[allowframebreaks]
     \frametitle{Sequenciais}
 
@@ -225,7 +258,16 @@ int main () {
 \end{frame}
 
 \begin{frame}
-    \frametitle{Exemplo}
+    \frametitle{Algoritmos}
+
+    \begin{itemize}
+        \item\textbf{sort(inicio, fim, comp)}: Ordena uma estrutura com acesso a elementos específicos utilizando a função comp;
+        \item\textbf{binary\_search(inicio, fim, valor, comp)}: Busca um elemento na estrutura de forma eficiente;
+        \item\textbf{lower\_bound(inicio, fim, valor, comp)}: Busca o menor elemento maior ou igual ao valor;
+        \item\textbf{upper\_bound(inicio, fim, valor, comp)}: Busca o maior elemento menor ou igual ao valor;
+        \item\textbf{min\_element(inicio, fim, comp)}: Busca o menor elemento da estrutura;
+        \item\textbf{max\_element(inicio, fim, comp)}: Busca o maior elemento da estrutura;
+    \end{itemize}
 
 \end{frame}
 
@@ -233,9 +275,45 @@ int main () {
 \begin{frame}
     \frametitle{Enunciado}
 
+    Link para o problema: \url{https://cses.fi/problemset/task/1621}
+
+    \vspace{0.5cm}
+
     You are given a list of n integers,
     and your task is to calculate the number
     of distinct values in the list.
+
+    \vspace{0.5cm}
+
+    \textbf{Input}: The first input line has an integer $n$: the number of values.
+    The second line has $n$ integers $x_1$ $x_2 $\ldots $x_n$
+
+    \textbf{Output}: Output the number of distinct values.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Exemplos de entradas e saídas}
+
+    \textbf{Entrada}:
+
+    5
+
+    2 3 2 2 3
+
+    \textbf{Saída}:
+
+    2
+    \vfill
+    \textbf{Entrada}:
+
+    10
+
+    1 1 1 1 1 1 1 1 1 1
+
+    \textbf{Saída}:
+
+    1
+
 
 \end{frame}
 
